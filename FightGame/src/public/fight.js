@@ -6,6 +6,10 @@ async function fight(f, i, [...points]){
 			div.id = "game";
 			div.innerHTML = "<strong>Fight starts!</strong>";
 	document.getElementById("app").appendChild(div);
+	var d = document.createElement('p');
+					d.innerHTML = "Fighter: <strong>"+f.name+"</strong> Power: "+f.power+" Health: "+f.fighterHealth+"<p> Improved Fighter: <strong>"+i.name+"</strong> Power: "+i.power+" Health: "+i.fighterHealth+"</p>";
+					document.getElementById("game").appendChild(d);
+
 
 	let gen = generatePoint(points);
 try{
@@ -18,13 +22,12 @@ try{
 			if(point.done)
 			{
 				break;
-			} else if(point != 0/0)
+			} else if(point.value != 0/0 && point.value != undefined)
 			{
 				f.hit(i, point.value);
 				console.log(f.name + " has hit.");
 
 				var p = document.createElement('p');
-					p.className = "f1";
 					p.innerHTML = f.name + " has hit.";
 					document.getElementById("game").appendChild(p);
 			}
@@ -36,7 +39,7 @@ try{
 			if(point.done)
 			{
 				break;
-			} else if(point != 0/0)
+			} else if(point.value != 0/0 && point.value != undefined)
 			{
 				i.doubleHit(f, point.value);
 				console.log(i.name + " has hit.");

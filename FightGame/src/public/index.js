@@ -1,8 +1,8 @@
 
 // create two instances
-var firstFighter = new Fighter("Daredevil",5,800);
+var firstFighter = new Fighter("Daredevil",5,300);
 
-var secondFighter = new ImprovedFighter("Punisher",7,700);
+var secondFighter = new ImprovedFighter("Punisher",7,200);
 
 // call fight function
 console.log("The first fighter today is "+ firstFighter.name);
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
 try{
-	fight(firstFighter, secondFighter,[ 25, 13, 14,40,2,7]).then(() => {
+	fight(firstFighter, secondFighter,[ 0, 13, 16, ,2,7]).then(() => {
       var p = document.createElement('p');
 					p.innerHTML = "<strong> The game is over. </strong>";
 					document.getElementById("game").appendChild(p);
