@@ -42,7 +42,6 @@ try{
 				console.log(i.name + " has hit.");
 
 				var p = document.createElement('p');
-					p.className = "f2";
 					p.innerHTML = i.name + " has hit.";
 					document.getElementById("game").appendChild(p);
 			}
@@ -52,12 +51,20 @@ try{
 	while(f.fighterHealth >0 && i.fighterHealth >0)
 
 	if(f.fighterHealth<=0){
-		let responseF = await f.knockout();
+		let responseF = await f.knockout().then((m)=>{
+			var p = document.createElement('p');
+					p.innerHTML = "<strong>"+m+"</strong><p><strong>"+i.name+"</strong> is a winner!</p>";
+					document.getElementById("game").appendChild(p);
+		});
 		return responseF;
 	}
 	else if(i.fighterHealth<=0)
 	{
-		let responseI = await i.knockout();
+		let responseI = await i.knockout().then((m)=>{
+			var p = document.createElement('p');
+					p.innerHTML = "<strong>"+m+"</strong><p><strong>"+f.name+"</strong> is a winner!</p>";
+					document.getElementById("game").appendChild(p);
+		});
 		return responseI;
 	}	
 	else{
@@ -66,7 +73,6 @@ try{
 				console.log("It's a drawn game.");
 				console.log(f , i);
 				var p = document.createElement('p');
-					p.className = "f";
 					p.innerHTML = "It's a drawn game.";
 					document.getElementById("game").appendChild(p);
 			}
@@ -75,14 +81,16 @@ try{
 				console.log(i.name + " is a winner!");
 				console.log(i , f);
 				var p = document.createElement('p');
-					p.className = "f1";
-					p.innerHTML = i.name + "is a winner!";
+					p.innerHTML = "<strong>"+i.name+"</strong> is a winner!";
 					document.getElementById("game").appendChild(p);
 			}
 			else
 			{
 				console.log(f.name + " is a winner!");
 				console.log(f , i);
+				var p = document.createElement('p');
+					p.innerHTML = "<strong>"+f.name+"</strong> is a winner!";
+					document.getElementById("game").appendChild(p);
 			}
 	}
 		
