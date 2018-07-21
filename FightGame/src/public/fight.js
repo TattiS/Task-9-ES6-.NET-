@@ -81,7 +81,7 @@ try{
 				console.log(i.name + " is a winner!");
 				console.log(i , f);
 				var p = document.createElement('p');
-					p.innerHTML = "<strong>"+i.name+"</strong> is a winner!";
+					p.innerHTML = "<strong>"+i.name+"</strong> is a winner! <p> Health of "+i.name+" is "+i.fighterHealth+"</p><p> Health of his enemy "+f.name+" is "+f.fighterHealth+"</p>";
 					document.getElementById("game").appendChild(p);
 			}
 			else
@@ -89,7 +89,7 @@ try{
 				console.log(f.name + " is a winner!");
 				console.log(f , i);
 				var p = document.createElement('p');
-					p.innerHTML = "<strong>"+f.name+"</strong> is a winner!";
+					p.innerHTML = "<strong>"+f.name+"</strong> is a winner!<p> Health of "+f.name+" is "+f.fighterHealth+"</p><p> Health of his enemy "+i.name+" is "+i.fighterHealth+"</p>";
 					document.getElementById("game").appendChild(p);
 			}
 	}
